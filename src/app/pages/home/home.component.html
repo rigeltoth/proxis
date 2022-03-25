@@ -1,17 +1,21 @@
-<div class="flex flex-col items-center justify-center">
-    
-    <!-- <div class="container" *ngFor="let design of designs">
-        <img [src]="design.image" alt="">
-    </div> -->
-    <div class=" max-h-10">
-        <!-- <swiper [config]="config">
-            <div class="swiper-wrapper mt-10">
-                <img
-                class="swiper-slide "
-                *ngFor="let design of designs"
-                [src]="design.image"
-                />
+<div class="bg-gray-100 grid grid-cols-4 h-[38rem]">
+
+    <div class=" col-span-1 ">    
+        <swiper [config]="config">
+            <div class="swiper-wrapper">
+              <img class="swiper-slide" *ngFor="let design of designs" [src]="design.image"/>
             </div>
-        </swiper> -->
+            <div class="swiper-pagination"></div>
+          <!--   <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+        </swiper>
+    </div>
+    <div class="bg-gray-300 col-span-3 h-full relative">
+        <div class="">
+            div
+        </div>
+        <div class="bg-gray-600 h-[44rem] w-72 z-10 -top-24 absolute right-6">
+            div3
+        </div>
     </div>
 </div>
