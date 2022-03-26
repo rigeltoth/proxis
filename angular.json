@@ -31,11 +31,11 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/swiper/swiper.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/swiper/swiper-bundle.min.css"
             ],
+            
             "scripts": [
-              "./node_modules/swiper/swiper.min.js"
             ]
           },
           "configurations": {

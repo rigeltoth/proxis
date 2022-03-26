@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { Design } from 'src/app/models/design';
 import { DesignService } from 'src/app/services/design.service';
+import { NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
 
-import Swiper, { SwiperOptions } from "swiper";
 
 @Component({
   selector: 'app-home',
@@ -11,21 +11,6 @@ import Swiper, { SwiperOptions } from "swiper";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
-  config: SwiperOptions = {
-    direction: 'vertical', 
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    }, 
-    loop: true,
-    spaceBetween: 35,
-    slidesPerView: 1,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-  };  
 
   designs: Design[] = [] 
   constructor(private designService: DesignService) { }
@@ -52,6 +37,10 @@ export class HomeComponent implements OnInit {
         return res
       })
     ).subscribe(res =>{ this.designs = res },)
+  }
+
+  getId(id: string){
+    console.log(id)
   }
 
 }

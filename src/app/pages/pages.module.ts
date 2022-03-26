@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { NgScrollbarModule, NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    NgxUsefulSwiperModule
-  ]
+    NgScrollbarModule
+  ],
 })
 export class PagesModule { }

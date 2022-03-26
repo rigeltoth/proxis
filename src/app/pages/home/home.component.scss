@@ -1,4 +1,12 @@
-.swiper {
-    height: 600px;
-    width: 400px;
+
+ng-scrollbar {
+  --scrollbar-size: 6px;
+  --scrollbar-thumb-color: rgb(75, 75, 75);
+  --scrollbar-thumb-hover-color: rgb(78, 78, 78);
+  --scrollbar-border-radius: none;
+  --scrollbar-container-color: rgb(0, 0, 0);
+  --scrollbar-track-color: rgba(0, 0, 0, 0.205);
+  --scrollbar-padding: 5px;
+
+  direction: rtl;
 }
