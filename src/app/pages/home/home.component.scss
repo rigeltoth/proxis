@@ -1,4 +1,3 @@
-
 ng-scrollbar {
   --scrollbar-size: 6px;
   --scrollbar-thumb-color: rgb(75, 75, 75);
@@ -9,4 +8,21 @@ ng-scrollbar {
   --scrollbar-padding: 5px;
 
   direction: rtl;
+}
+
+.swiper {
+  height: 400px;
+  width: 600px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 10%;
 }

@@ -1,19 +1,31 @@
-<div class="bg-gray-100 grid grid-cols-4 h-[38rem]"> 
-    
-    <ng-scrollbar>
-    <div class="col-span-1 flex flex-col items-center space-y-4 overflow-y-auto ml-6 ">    
-        <div class="bg-gray-700 h-60 w-60 " *ngFor="let design of designs">
-                <img class="h-60 w-60" [src]="design.image" (click)="getId(design.id)" >
-            </div>
-        </div>
-    </ng-scrollbar>
-
-    <div class="bg-gray-300 col-span-3 h-full relative">
-        <div class="">
-            div
-        </div>
-        <div class="bg-gray-600 h-[44rem] w-72 z-10 -top-24 absolute right-6">
-            div3
-        </div>
+<div class="bg-gray-100 grid grid-cols-4 h-[38rem]">
+  <ng-scrollbar [position]="'invertY'">
+    <div
+      class="col-span-1 flex flex-col items-center space-y-4 overflow-y-auto ml-12"
+    >
+      <div class="bg-gray-700 h-60 w-60" *ngFor="let design of designs">
+        <img
+          class="h-60 w-60"
+          [src]="design.image"
+          (click)="getId(design.id)"
+        />
+      </div>
     </div>
+  </ng-scrollbar>
+
+  <div class="bg-gray-300 col-span-3 h-full relative">
+    <div class="w-2/3" >
+      <swiper [config]="config">
+        <div class="swiper-wrapper">
+            <img class="swiper-slide" *ngFor="let photo of kitchens" [src]="photo"/>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </swiper>
+    </div>
+    <div class="bg-gray-600 h-[44rem] w-72 z-10 -top-24 absolute right-6">
+      div3
+    </div>
+  </div>
 </div>

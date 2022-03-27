@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
-import { Design } from 'src/app/models/design';
+import { BehaviorSubject, map, of } from 'rxjs';
+import { Design, Kitchen } from 'src/app/models/design';
 import { DesignService } from 'src/app/services/design.service';
-import { NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
-
+import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +11,30 @@ import { NG_SCROLLBAR_OPTIONS } from 'ngx-scrollbar';
 })
 export class HomeComponent implements OnInit {
 
-  designs: Design[] = [] 
+  config: SwiperOptions = {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30
+  };
+
+  designs: Design[] = []
+  kitchens: Kitchen[] = []
+  private designId$ = new BehaviorSubject<number>(0)
+
   constructor(private designService: DesignService) { }
 
   ngOnInit(): void {
     this.getDesings()
+
+    this.designId$.subscribe(res => this.kitchens = this.designs[res].kitchens)
+    console.log(this.kitchens)
   }
 
   getDesings(){
@@ -40,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   getId(id: string){
-    console.log(id)
+    this.designId$.next(Number(id))
   }
 
 }

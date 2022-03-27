@@ -13,7 +13,7 @@ interface Content {
     image: string;
 }
 
-interface Kitchen {
+export interface Kitchen {
     id:     string;
     name:   string;
     photos: Photo[];
