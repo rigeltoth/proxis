@@ -1,25 +1,22 @@
 ng-scrollbar {
-  --scrollbar-size: 6px;
-  --scrollbar-thumb-color: rgb(75, 75, 75);
-  --scrollbar-thumb-hover-color: rgb(78, 78, 78);
+  --scrollbar-size: 5px;
+  --scrollbar-thumb-color: rgba(1, 59, 9, 0.548);
+  --scrollbar-thumb-hover-color: rgba(1, 61, 9, 0.534);
   --scrollbar-border-radius: none;
   --scrollbar-container-color: rgb(0, 0, 0);
-  --scrollbar-track-color: rgba(0, 0, 0, 0.205);
-  --scrollbar-padding: 5px;
-
-  direction: rtl;
-}
-
-.swiper {
-  height: 400px;
-  width: 600px;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.329);
+  --scrollbar-padding: 0px;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  height: 150px;
+  width: 300px;
+}
+.swiper-slider {
+  height: 400px;
+  width: 400px;
 }
 
 .swiper-slide img {

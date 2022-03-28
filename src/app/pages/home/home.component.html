@@ -1,31 +1,94 @@
-<div class="bg-gray-100 grid grid-cols-4 h-[38rem]">
-  <ng-scrollbar [position]="'invertY'">
+<div class="flex">
+  <div class="bg-gray-800 h-[38rem] text-lime-700 text-2xl flex items-center">
+    <i class="fa-solid fa-bars mx-4 "></i>
+  </div>
+  <div >
+    <div class="grid grid-cols-4 h-[38rem]">
+
+  <ng-scrollbar [position]="'invertY'" class="mx-4">
     <div
-      class="col-span-1 flex flex-col items-center space-y-4 overflow-y-auto ml-12"
+      class="col-span-1 flex flex-col items-center space-y-4 overflow-y-auto ml-3"
     >
-      <div class="bg-gray-700 h-60 w-60" *ngFor="let design of designs">
-        <img
-          class="h-60 w-60"
+      <div class="h-52 w-full relative transition duration-150 ease-in-out" *ngFor="let design of designs; index as i" #view>
+        <img 
+          class="h-full w-full object-cover object-center cursor-pointer"
           [src]="design.image"
-          (click)="getId(design.id)"
+          (click)="getIdKit(i)"
         />
+        <h1 class="bg-gray-200  font-semibold text-xl absolute bottom-0 left-0">{{design.name}}</h1>
       </div>
     </div>
   </ng-scrollbar>
 
-  <div class="bg-gray-300 col-span-3 h-full relative">
-    <div class="w-2/3" >
-      <swiper [config]="config">
-        <div class="swiper-wrapper">
-            <img class="swiper-slide" *ngFor="let photo of kitchens" [src]="photo"/>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+  <div class="bg-gray-200 col-span-2 flex flex-col ">
+      <div class="h-1/4 flex justify-center items-center m-8">
+        <swiper [config]="configkit" >
+          <div class="swiper-wrapper w-60" >
+            <img class="swiper-slide object-fill object-center cursor-pointer" 
+            *ngFor="let kitchen of kitchens; index as i" 
+            [src]="kitchen.photos[0].image"
+            (click)="getIdPhoto(i)"
+            />
+          </div>
+          <ng-container *ngIf="kitchens[kitchenid].photos[1]">
+            <div class="swiper-button-next pr-12"></div>
+            <div class="swiper-button-prev pl-12 h-2"></div>
+          </ng-container>
+          </swiper>
+      </div>
+      
+      <div class="h-3/4 flex justify-center items-center mx-20" >
+        <swiper [config]="configPhotos" >
+          <div class="swiper-wrapper mx-auto h-full" >
+            <img class="swiper-slider swiper-slide object-cover object-center cursor-pointer" 
+            *ngFor="let photo of photos; index as i" 
+            [src]="photo.image"
+            />
+          </div>
+          <div class="swiper-pagination"></div>
       </swiper>
+      </div>
     </div>
-    <div class="bg-gray-600 h-[44rem] w-72 z-10 -top-24 absolute right-6">
-      div3
+    
+    <div class="bg-gray-200 col-span-1 relative">
+      <div class="bg-gray-300 h-[44rem] w-72 z-10 -top-24 absolute left-10">
+
+        <div class="h-60 border-b border-gray-700 flex justify-center items-center mx-4">
+          <h1 class="font-semibold text-4xl text-stone-500">{{designs[designid].name}}</h1>
+        </div>
+
+        <ng-scrollbar [position]="'invertY'">
+          <div class="relative overflow-y-auto h-[28rem]">
+            <h1 class="text-center my-5 text-stone-500 font-semibold">WHAT YOU HAVE <br> IN THIS COLLECTION</h1>
+
+            <ng-container *ngIf="!seemore; else more" >
+              <img class="px-6 object-cover object-center" [src]="designs[designid].contents[0].image" alt="">
+              <h1 (click)="toggleSeeMore()" 
+              class="underline text-lime-900 text-center cursor-pointer">see more</h1>
+            </ng-container>
+            
+            <ng-template #more>
+              <div class="space-y-2 mt-4 mx-6 relative flex flex-col" *ngFor="let content of designs[designid].contents">
+                <img class="object-cover object-center" [src]="content.image">
+                <h1 class="bg-gray-200 font-semibold text-lg absolute right-0 bottom-0">{{content.name}}</h1>
+              </div>
+              <h1 (click)="toggleSeeMore()" 
+              class="underline text-lime-900 text-center cursor-pointer">see less</h1>
+            </ng-template>
+
+          </div>
+
+        </ng-scrollbar>
+
+      </div>
     </div>
   </div>
+  </div>
 </div>
+
+  
+  
+  
+  
+  
+  

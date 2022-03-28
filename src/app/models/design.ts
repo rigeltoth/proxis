@@ -19,7 +19,7 @@ export interface Kitchen {
     photos: Photo[];
 }
 
-interface Photo {
+export interface Photo {
     id:    string;
     image: string;
 }
